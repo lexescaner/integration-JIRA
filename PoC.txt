@@ -1,0 +1,349 @@
+Proof of Concept
+
+Postman
+Project Details: Sample GET
+curl --location --request GET 'https://lexdemo.atlassian.net/rest/api/2/issue/AP-1' \
+--header 'Authorization: Basic YXRsYXNzaWFuLmxleEBnbWFpbC5jb206cTMzTjNXc21CVmVNNzk2U3BKOWY1MDYw' \
+--header 'Cookie: atlassian.xsrf.token=e5132ab2-84b3-462a-887c-ffbe70ec9a5d_c5d6a8bf94a7a5476d79451ed74539e4c1fbe514_lin'
+
+Create Issue: Sample POST
+curl --location --request POST 'https://lexdemo.atlassian.net/rest/api/2/issue' \
+--header 'Authorization: Basic YXRsYXNzaWFuLmxleEBnbWFpbC5jb206cTMzTjNXc21CVmVNNzk2U3BKOWY1MDYw' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: atlassian.xsrf.token=e5132ab2-84b3-462a-887c-ffbe70ec9a5d_c5d6a8bf94a7a5476d79451ed74539e4c1fbe514_lin' \
+--data-raw '{
+    "fields": {
+       "project":
+       {
+          "key": "AP"
+       },
+       "summary": "No REST for the Wicked.",
+       "description": "Creating of an issue using ids for projects and issue types using the REST API",
+       "issuetype": {
+          "name": "Task"
+       }
+   }
+}'
+
+Expand Projects: Sample GET 
+curl --location --request GET 'https://lexdemo.atlassian.net/rest/api/2/issue/createmeta' \
+--header 'Authorization: Basic YXRsYXNzaWFuLmxleEBnbWFpbC5jb206cTMzTjNXc21CVmVNNzk2U3BKOWY1MDYw' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: atlassian.xsrf.token=e5132ab2-84b3-462a-887c-ffbe70ec9a5d_c5d6a8bf94a7a5476d79451ed74539e4c1fbe514_lin' \
+--data-raw '{
+    "fields": {
+       "project":
+       {
+          "key": "AP"
+       },
+       "summary": "No REST for the Wicked.",
+       "description": "Creating of an issue using ids for projects and issue types using the REST API",
+       "issuetype": {
+          "name": "Task"
+       }
+   }
+}'
+
+Command Prompt
+curl -v https://lexdemo.atlassian.net/rest/api/3/issue/AP-1 --user atlassian.lex@gmail.com:q33N3WsmBVeM796SpJ9f5060
+
+Results
+>>
+C:\Users\caesc>curl -v https://lexdemo.atlassian.net/rest/api/3/issue/AP-1 --user atlassian.lex@gmail.com:q33N3WsmBVeM796SpJ9f5060
+*   Trying 185.166.143.36:443...
+* Connected to lexdemo.atlassian.net (185.166.143.36) port 443 (#0)
+* schannel: disabled automatic use of client certificate
+* ALPN: offers http/1.1
+* ALPN: server did not agree on a protocol. Uses default.
+* Server auth using Basic with user 'atlassian.lex@gmail.com'
+> GET /rest/api/3/issue/AP-1 HTTP/1.1
+> Host: lexdemo.atlassian.net
+> Authorization: Basic YXRsYXNzaWFuLmxleEBnbWFpbC5jb206cTMzTjNXc21CVmVNNzk2U3BKOWY1MDYw
+> User-Agent: curl/7.83.1
+> Accept: */*
+>
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Nel: {"failure_fraction": 0.001, "include_subdomains": true, "max_age": 600, "report_to": "endpoint-1"}
+< Date: Tue, 13 Sep 2022 14:33:59 GMT
+< Vary: Accept-Encoding
+< Server: globaledge-envoy
+< Expect-Ct: report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/atlassian-proxy", max-age=86400
+< Report-To: {"endpoints": [{"url": "https://dz8aopenkvv6s.cloudfront.net"}], "group": "endpoint-1", "include_subdomains": true, "max_age": 600}
+< Connection: Keep-Alive
+< Set-Cookie: atlassian.xsrf.token=e5132ab2-84b3-462a-887c-ffbe70ec9a5d_234059d564c2688b1bb20897cf5d282186e69503_lin; path=/; SameSite=None; Secure
+< Atl-Traceid: 8730b9ae81909bce
+< Content-Type: application/json;charset=UTF-8
+< X-Aaccountid: 630483c74c25135b9720f0bb
+< X-Arequestid: 29888bf9-c72b-40f4-8b48-22446c762292
+< Cache-Control: no-cache, no-store, no-transform
+< X-Xss-Protection: 1; mode=block
+< Transfer-Encoding: chunked
+< Timing-Allow-Origin: *
+< X-Content-Type-Options: nosniff
+< Strict-Transport-Security: max-age=63072000; preload
+< X-Envoy-Upstream-Service-Time: 238
+<
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations,customfield_10010.requestTypePractice",
+    "id": "10000",
+    "self": "https://lexdemo.atlassian.net/rest/api/3/issue/10000",
+    "key": "AP-1",
+    "fields": {
+        "statuscategorychangedate": "2022-09-07T18:39:19.952+0200",
+        "issuetype": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/issuetype/10001",
+            "id": "10001",
+            "description": "Tasks track small, distinct pieces of work.",
+            "iconUrl": "https://lexdemo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Task",
+            "subtask": false,
+            "avatarId": 10318,
+            "entityId": "c54090e3-5d67-4df5-8b69-13acc4e63502",
+            "hierarchyLevel": 0
+        },
+        "timespent": null,
+        "customfield_10030": null,
+        "customfield_10031": [],
+        "project": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/project/10000",
+            "id": "10000",
+            "key": "AP",
+            "name": "Atlassian Project",
+            "projectTypeKey": "software",
+            "simplified": true,
+            "avatarUrls": {
+                "48x48": "https://lexdemo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10404",
+                "24x24": "https://lexdemo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=small",
+                "16x16": "https://lexdemo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=xsmall",
+                "32x32": "https://lexdemo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=medium"
+            }
+        },
+        "customfield_10032": null,
+        "customfield_10033": null,
+        "fixVersions": [],
+        "customfield_10034": null,
+        "aggregatetimespent": null,
+        "resolution": null,
+        "customfield_10027": null,
+        "customfield_10028": null,
+        "customfield_10029": null,
+        "resolutiondate": null,
+        "workratio": -1,
+        "issuerestriction": {
+            "issuerestrictions": {},
+            "shouldDisplay": true
+        },
+        "watches": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/issue/AP-1/watchers",
+            "watchCount": 1,
+            "isWatching": true
+        },
+        "lastViewed": "2022-09-13T15:23:50.839+0200",
+        "created": "2022-09-07T18:39:19.625+0200",
+        "customfield_10020": null,
+        "customfield_10021": null,
+        "customfield_10022": null,
+        "priority": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://lexdemo.atlassian.net/images/icons/priorities/medium.svg",
+            "name": "Medium",
+            "id": "3"
+        },
+        "customfield_10023": null,
+        "customfield_10024": null,
+        "customfield_10025": null,
+        "labels": [],
+        "customfield_10026": null,
+        "customfield_10016": null,
+        "customfield_10017": null,
+        "customfield_10018": {
+            "hasEpicLinkFieldDependency": false,
+            "showField": false,
+            "nonEditableReason": {
+                "reason": "PLUGIN_LICENSE_ERROR",
+                "message": "The Parent Link is only available to Jira Premium users."
+            }
+        },
+        "customfield_10019": "0|hzzzzz:",
+        "aggregatetimeoriginalestimate": null,
+        "timeestimate": null,
+        "versions": [],
+        "issuelinks": [],
+        "assignee": null,
+        "updated": "2022-09-13T14:27:20.229+0200",
+        "status": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/status/10000",
+            "description": "",
+            "iconUrl": "https://lexdemo.atlassian.net/",
+            "name": "To Do",
+            "id": "10000",
+            "statusCategory": {
+                "self": "https://lexdemo.atlassian.net/rest/api/3/statuscategory/2",
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+            }
+        },
+        "components": [],
+        "timeoriginalestimate": null,
+        "description": {
+            "version": 1,
+            "type": "doc",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Hello Atlassian ToDo Description"
+                        }
+                    ]
+                }
+            ]
+        },
+        "customfield_10010": null,
+        "customfield_10014": null,
+        "customfield_10015": null,
+        "timetracking": {},
+        "customfield_10005": null,
+        "customfield_10006": null,
+        "customfield_10007": null,
+        "security": null,
+        "customfield_10008": null,
+        "attachment": [],
+        "aggregatetimeestimate": null,
+        "customfield_10009": null,
+        "summary": "Hello Atlassian ToDo",
+        "creator": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/user?accountId=630483c74c25135b9720f0bb",
+            "accountId": "630483c74c25135b9720f0bb",
+            "emailAddress": "atlassian.lex@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "24x24": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "16x16": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "32x32": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png"
+            },
+            "displayName": "Atlassian Lex",
+            "active": true,
+            "timeZone": "Europe/Copenhagen",
+            "accountType": "atlassian"
+        },
+        "subtasks": [],
+        "reporter": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/user?accountId=630483c74c25135b9720f0bb",
+            "accountId": "630483c74c25135b9720f0bb",
+            "emailAddress": "atlassian.lex@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "24x24": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "16x16": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                "32x32": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png"
+            },
+            "displayName": "Atlassian Lex",
+            "active": true,
+            "timeZone": "Europe/Copenhagen",
+            "accountType": "atlassian"
+        },
+        "aggregateprogress": {
+            "progress": 0,
+            "total": 0
+        },
+        "customfield_10001": null,
+        "customfield_10002": null,
+        "customfield_10003": null,
+        "customfield_10004": null,
+        "environment": null,
+        "duedate": null,
+        "progress": {
+            "progress": 0,
+            "total": 0
+        },
+        "votes": {
+            "self": "https://lexdemo.atlassian.net/rest/api/3/issue/AP-1/votes",
+            "votes": 0,
+            "hasVoted": false
+        },
+        "comment": {
+            "comments": [
+                {
+                    "self": "https://lexdemo.atlassian.net/rest/api/3/issue/10000/comment/10000",
+                    "id": "10000",
+                    "author": {
+                        "self": "https://lexdemo.atlassian.net/rest/api/3/user?accountId=630483c74c25135b9720f0bb",
+                        "accountId": "630483c74c25135b9720f0bb",
+                        "emailAddress": "atlassian.lex@gmail.com",
+                        "avatarUrls": {
+                            "48x48": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "24x24": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "16x16": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "32x32": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png"
+                        },
+                        "displayName": "Atlassian Lex",
+                        "active": true,
+                        "timeZone": "Europe/Copenhagen",
+                        "accountType": "atlassian"
+                    },
+                    "body": {
+                        "version": 1,
+                        "type": "doc",
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "13-09-2022 Test comment "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "updateAuthor": {
+                        "self": "https://lexdemo.atlassian.net/rest/api/3/user?accountId=630483c74c25135b9720f0bb",
+                        "accountId": "630483c74c25135b9720f0bb",
+                        "emailAddress": "atlassian.lex@gmail.com",
+                        "avatarUrls": {
+                            "48x48": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "24x24": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "16x16": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png",
+                            "32x32": "https://secure.gravatar.com/avatar/47ba1e034d9a98bffda1c471c731e518?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAL-0.png"
+                        },
+                        "displayName": "Atlassian Lex",
+                        "active": true,
+                        "timeZone": "Europe/Copenhagen",
+                        "accountType": "atlassian"
+                    },
+                    "created": "2022-09-13T14:27:20.229+0200",
+                    "updated": "2022-09-13T14:27:20.229+0200",
+                    "jsdPublic": true
+                }
+            ],
+            "self": "https://lexdemo.atlassian.net/rest/api/3/issue/10000/comment",
+            "maxResults": 1,
+            "total": 1,
+            "startAt": 0
+        },
+        "worklog": {
+            "startAt": 0,
+            "maxResults": 20,
+            "total": 0,
+            "worklogs": []
+        }
+    }
+}
+* Connection #0 to host lexdemo.atlassian.net left intact
+>>
+
+Resources
+Youtube
+https://www.youtube.com/watch?v=pcNqjBlhipU&t=862s
+
+JIRA API Rest Documentation
+https://docs.atlassian.com/software/jira/docs/api/REST/
+- look for latest/
+
+All Jira rest API endpoints showed in this video can be found here
+https://honglytech.com/jira/jira-rest-api
